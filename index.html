@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Happy Birthday! 🎂</title>
   <meta name="description" content="A special digital scrapbook for a wonderful friend.">
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <!-- Main Stylesheet (with cache-busting version) -->
   <link rel="stylesheet" href="style.css?v=7">
 </head>
+
 <body>
 
   <!-- SVG Noise Filter for Paper Texture (Creates 3D shadow & fiber grain) -->
@@ -28,7 +32,7 @@
   </svg>
 
   <div class="scrapbook-container">
-    
+
     <!-- Background overlay for grain effect -->
     <div class="grain-overlay"></div>
 
@@ -37,7 +41,7 @@
       <div class="cover-card">
         <!-- Washi Tape -->
         <div class="washi-tape tape-top-right"></div>
-        
+
         <!-- Sketched Leaf Branch Doodle (SVG) -->
         <svg class="doodle-leaf leaf-top-left" viewBox="0 0 100 100" width="60" height="60">
           <path d="M10,80 Q30,50 80,20" fill="none" stroke="#c48b9f" stroke-width="3" stroke-linecap="round" />
@@ -48,7 +52,7 @@
 
         <h1 class="handwritten cover-subtitle">For a very special friend</h1>
         <h2 class="serif-title cover-name">KC</h2>
-        
+
         <!-- Interactive Ring Wreath Sketch -->
         <div class="wreath-container">
           <svg class="wreath-svg" viewBox="0 0 120 120" width="120" height="120">
@@ -65,9 +69,10 @@
 
         <!-- Sketched Underline Doodle (SVG) -->
         <svg class="doodle-underline" viewBox="0 0 160 20" width="140" height="20">
-          <path d="M10,10 C50,15 110,5 150,12 M20,15 C60,18 100,10 140,16" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" />
+          <path d="M10,10 C50,15 110,5 150,12 M20,15 C60,18 100,10 140,16" fill="none" stroke="#c5a059" stroke-width="2"
+            stroke-linecap="round" />
         </svg>
-        
+
         <div class="scroll-prompt">
           <p class="scroll-prompt-text handwritten">tap or scroll to open</p>
           <div class="scroll-arrow">↓</div>
@@ -79,7 +84,7 @@
     <section class="section jokes-section" id="inside-jokes">
       <div class="jokes-card scroll-reveal slide-up">
         <div class="washi-tape tape-top-right"></div>
-        
+
         <!-- Interactive Knock Joke Element -->
         <div class="knock-interaction-wrapper">
           <div class="knock-tap-box" id="knock-target">
@@ -88,29 +93,38 @@
             </div>
             <p class="knock-instruction handwritten">Tap to knock...</p>
           </div>
-          
+
           <div class="knock-reveal-text" id="knock-reveal">
             <span class="reveal-content handwritten">toktok🤜🤜</span>
           </div>
         </div>
-        
+
         <!-- Screenshots Grid Area (with inline width overrides to prevent cache bugs) -->
-        <div class="screenshots-grid" style="display: flex; justify-content: center; gap: 12px; margin-top: 15px; width: 100%;">
-          <div class="screenshot-item item-tilted-left" style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss1.jpg" alt="toktok screenshot 1" class="screenshot-img" style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
-            <div class="screenshot-caption handwritten">toktok 🤜🤜</div>
+        <div class="screenshots-grid"
+          style="display: flex; justify-content: center; gap: 12px; margin-top: 15px; width: 100%;">
+          <div class="screenshot-item item-tilted-left"
+            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
+            <img src="ss1.jpg" alt="toktok screenshot 1" class="screenshot-img"
+              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
+            <div class="screenshot-caption handwritten">
+            </div>
           </div>
-          <div class="screenshot-item item-tilted-right" style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss2.jpg" alt="toktok screenshot 2" class="screenshot-img" style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
+          <div class="screenshot-item item-tilted-right"
+            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
+            <img src="ss2.jpg" alt="toktok screenshot 2" class="screenshot-img"
+              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
           </div>
-          <div class="screenshot-item item-tilted-left" style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss3.jpg" alt="toktok screenshot 3" class="screenshot-img" style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
+          <div class="screenshot-item item-tilted-left"
+            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
+            <img src="ss3.jpg" alt="toktok screenshot 3" class="screenshot-img"
+              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
           </div>
         </div>
-        
+
         <!-- Arrow Pointer Doodle (SVG) -->
         <svg class="doodle-arrow" viewBox="0 0 50 50" width="36" height="36">
-          <path d="M10,10 Q25,30 20,40 M20,40 L12,38 M20,40 L24,30" fill="none" stroke="#c5a059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M10,10 Q25,30 20,40 M20,40 L12,38 M20,40 L24,30" fill="none" stroke="#c5a059" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
     </section>
@@ -128,7 +142,7 @@
           <div class="letter-paper" id="letter-content">
             <div class="letter-inner">
               <h4 class="handwritten">Dear KC,</h4>
-              
+
               <!-- Voice message player -->
               <div class="voice-player">
                 <audio id="voice-audio" src="message.mp4" preload="metadata"></audio>
@@ -149,12 +163,29 @@
               <!-- Scrollable letter text container -->
               <div class="letter-scroll-text">
                 <p class="handwritten letter-p">Hiiiiiii</p>
-                <p class="handwritten letter-p">Tagal na rin palaaaa. I'm really glad na nag-message ka that day. Kahit na sabi mo nga sobrang mahiyain moooooo, na kahit pag-abot ng bayad sa jeep nahihiya ka tapos pagpara (or ineeme mo lang ako HAHAHA). We had a great chat until we went sa IG. I don't even know kung gaano katagal tayo nag-usap doon, then suddenly nag-stop tayo, for a week if I'm right? Tapos nag-chat ka bigla kung buhay pa ba ako. Then after that, ayon, araw-araw na tayong nagdaldalan at nagsesendan ng sobrang daming reels. Hindi ko alam kung naiirita ka na ba noon sa dami ng sinesend ko HAHAHAHA.</p>
-                <p class="handwritten letter-p">I'm really thankful that I got to know you. Even if it's not been that long, naging special ka na rin sa buhay ko. I know it sounds cringe, pero that's the truth. I don't know what to say na omg HAHAHAHA. This is all I can do to greet you since nahihiya ako sabihin 'to directly, and eto lang talaga kaya ko hehe.</p>
-                <p class="handwritten letter-p">Thank you for being someone na naging part ng everyday ko. Kahit simpleng kwentuhan lang or send ng random reels, sobrang naa-appreciate ko yun. Hindi mo siguro alam, pero ang dami mong napapasaya sa mga simpleng bagay.</p>
-                <p class="handwritten letter-p">Ang gaan mo kausap, and I never felt like kailangan kong magpanggap around you. Thank you for making me feel comfortable and for always listening sa mga random daldal ko.</p>
-                <p class="handwritten letter-p">I'm really thankful that I met you. Out of all the random things that happened online, ikaw siguro yung isa sa mga hindi ko pagsisisihang nangyari.</p>
-                <p class="handwritten letter-p">Happy birthday ulit, KC. I hope today reminds you kung gaano ka ka-special sa mga taong nakaka-appreciate sa'yo, including me. I wish na maging masaya ka palagi, maging healthy, at ma-achieve mo lahat ng goals and dreams mo. Please don't be too hard on yourself, okay? You deserve all the good things that come your way. I KNOW PAULIT ULIT LANG AKO BUT YEAH HAHAHAHAHHAHA</p>
+                <p class="handwritten letter-p">Tagal na rin palaaaa. I'm really glad na nag-message ka that day. Kahit
+                  na sabi mo nga sobrang mahiyain moooooo, na kahit pag-abot ng bayad sa jeep nahihiya ka tapos pagpara
+                  (or ineeme mo lang ako HAHAHA). We had a great chat until we went sa IG. I don't even know kung gaano
+                  katagal tayo nag-usap doon, then suddenly nag-stop tayo, for a week if I'm right? Tapos nag-chat ka
+                  bigla kung buhay pa ba ako. Then after that, ayon, araw-araw na tayong nagdaldalan at nagsesendan ng
+                  sobrang daming reels. Hindi ko alam kung naiirita ka na ba noon sa dami ng sinesend ko HAHAHAHA.</p>
+                <p class="handwritten letter-p">I'm really thankful that I got to know you. Even if it's not been that
+                  long, naging special ka na rin sa buhay ko. I know it sounds cringe, pero that's the truth. I don't
+                  know what to say na omg HAHAHAHA. This is all I can do to greet you since nahihiya ako sabihin 'to
+                  directly, and eto lang talaga kaya ko hehe.</p>
+                <p class="handwritten letter-p">Thank you for being someone na naging part ng everyday ko. Kahit
+                  simpleng kwentuhan lang or send ng random reels, sobrang naa-appreciate ko yun. Hindi mo siguro alam,
+                  pero ang dami mong napapasaya sa mga simpleng bagay.</p>
+                <p class="handwritten letter-p">Ang gaan mo kausap, and I never felt like kailangan kong magpanggap
+                  around you. Thank you for making me feel comfortable and for always listening sa mga random daldal ko.
+                </p>
+                <p class="handwritten letter-p">I'm really thankful that I met you. Out of all the random things that
+                  happened online, ikaw siguro yung isa sa mga hindi ko pagsisisihang nangyari.</p>
+                <p class="handwritten letter-p">Happy birthday ulit, KC. I hope today reminds you kung gaano ka
+                  ka-special sa mga taong nakaka-appreciate sa'yo, including me. I wish na maging masaya ka palagi,
+                  maging healthy, at ma-achieve mo lahat ng goals and dreams mo. Please don't be too hard on yourself,
+                  okay? You deserve all the good things that come your way. I KNOW PAULIT ULIT LANG AKO BUT YEAH
+                  HAHAHAHAHHAHA</p>
                 <p class="handwritten letter-p">Happy birthday ulit. 🤍</p>
                 <p class="handwritten signature">a.jhadee🐒</p>
               </div>
@@ -177,16 +208,16 @@
         </div>
 
         <h3 class="serif-title closing-header">To My Best Friend...</h3>
-        
+
         <!-- Typewriter Text Container -->
         <div class="typewriter-container" id="typewriter-trigger">
           <div class="typewriter-text handwritten" id="typewriter-text"></div>
         </div>
-        
+
         <!-- Candle blowing interaction -->
         <div class="candle-interaction-container">
           <p class="candle-instruction handwritten">Make a wish and tap the candle to blow it out!</p>
-          
+
           <div class="candle-wrapper" id="candle-element">
             <div class="flame" id="candle-flame">
               <div class="flame-inner"></div>
@@ -209,74 +240,84 @@
         <!-- Photo 1 -->
         <div class="gallery-item item-tilted-left scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop" alt="sunset valley" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop"
+            alt="sunset valley" class="gallery-img">
           <div class="gallery-caption handwritten">sunset valley</div>
         </div>
 
         <!-- Photo 2 -->
         <div class="gallery-item item-tilted-right scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600&auto=format&fit=crop" alt="forest stream" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600&auto=format&fit=crop"
+            alt="forest stream" class="gallery-img">
           <div class="gallery-caption handwritten">forest stream</div>
         </div>
 
         <!-- Photo 3 -->
         <div class="gallery-item item-tilted-left scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop" alt="mountain peaks" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop"
+            alt="mountain peaks" class="gallery-img">
           <div class="gallery-caption handwritten">mountain peaks</div>
         </div>
 
         <!-- Photo 4 -->
         <div class="gallery-item item-tilted-right scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop" alt="ocean shores" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop"
+            alt="ocean shores" class="gallery-img">
           <div class="gallery-caption handwritten">ocean shores</div>
         </div>
 
         <!-- Photo 5 -->
         <div class="gallery-item item-tilted-left scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop" alt="starry night" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop"
+            alt="starry night" class="gallery-img">
           <div class="gallery-caption handwritten">starry night</div>
         </div>
 
         <!-- Photo 6 -->
         <div class="gallery-item item-tilted-right scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop" alt="autumn trail" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop"
+            alt="autumn trail" class="gallery-img">
           <div class="gallery-caption handwritten">autumn trail</div>
         </div>
 
         <!-- Photo 7 -->
         <div class="gallery-item item-tilted-left scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=600&auto=format&fit=crop" alt="pink blossoms" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=600&auto=format&fit=crop"
+            alt="pink blossoms" class="gallery-img">
           <div class="gallery-caption handwritten">pink blossoms</div>
         </div>
 
         <!-- Photo 8 -->
         <div class="gallery-item item-tilted-right scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=600&auto=format&fit=crop" alt="lavender breeze" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=600&auto=format&fit=crop"
+            alt="lavender breeze" class="gallery-img">
           <div class="gallery-caption handwritten">lavender breeze</div>
         </div>
 
         <!-- Photo 9 -->
         <div class="gallery-item item-tilted-left scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&auto=format&fit=crop" alt="misty forest" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&auto=format&fit=crop"
+            alt="misty forest" class="gallery-img">
           <div class="gallery-caption handwritten">misty forest</div>
         </div>
 
         <!-- Photo 10 -->
         <div class="gallery-item item-tilted-right scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600&auto=format&fit=crop" alt="desert dunes" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600&auto=format&fit=crop"
+            alt="desert dunes" class="gallery-img">
           <div class="gallery-caption handwritten">desert dunes</div>
         </div>
       </div>
-      
+
 
     </section>
 
@@ -295,4 +336,5 @@
   <!-- Script logic -->
   <script src="script.js"></script>
 </body>
+
 </html>
