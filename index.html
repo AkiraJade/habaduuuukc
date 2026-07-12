@@ -7,6 +7,10 @@
   <title>Happy Birthday! 🎂</title>
   <meta name="description" content="A special digital scrapbook for a wonderful friend.">
 
+  <!-- Preload spiral intro images to prevent animation lag/blank flash -->
+  <link rel="preload" href="monkey.png" as="image">
+  <link rel="preload" href="Banaging.png" as="image">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -280,7 +284,7 @@
   <canvas id="interactive-canvas"></canvas>
 
   <!-- Script logic -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 
 </html>
