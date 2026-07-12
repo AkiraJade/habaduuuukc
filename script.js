@@ -15,10 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         
-        // Trigger typewriter when closing section is visible
-        if (entry.target.id === 'closing') {
-          startTypewriter();
-        }
+
         
         observer.unobserve(entry.target);
       }
@@ -30,10 +27,76 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  // Trigger cover page assembly load animation
-  setTimeout(() => {
-    document.body.classList.add('page-loaded');
-  }, 150);
+  // Trigger cover page assembly load animation via spiral intro
+  const runSpiralIntro = () => {
+    const overlay = document.createElement('div');
+    overlay.id = 'spiral-overlay';
+    document.body.appendChild(overlay);
+
+    // Temporarily lock scroll during animation
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const numImages = 110; // High count for dense packing/collisions
+    const images = [];
+
+    // Construct winding circular spiral
+    for (let i = 0; i < numImages; i++) {
+      const img = document.createElement('img');
+      img.src = i % 2 === 0 ? 'monkey.png' : 'Banaging.png';
+      img.classList.add('spiral-img');
+      
+      const angle = i * 0.26; // Small angle increment causes circular winding loops
+      const r = Math.sqrt(i / numImages) * 78; // Square-root distribution covers screen corners densely
+      
+      const x = 50 + r * Math.cos(angle);
+      const y = 50 + r * Math.sin(angle);
+      
+      img.style.left = `${x}vw`;
+      img.style.top = `${y}vh`;
+      
+      const randomRot = Math.random() * 44 - 22;
+      img.style.transform = `translate(-50%, -50%) scale(0) rotate(${randomRot}deg)`;
+      
+      overlay.appendChild(img);
+      images.push({ el: img, rotation: randomRot });
+    }
+
+    // Step 1: Spiral Spawning (1-by-1 in circular motion winding outwards)
+    images.forEach((item, index) => {
+      setTimeout(() => {
+        item.el.classList.add('spawned');
+        item.el.style.transform = `translate(-50%, -50%) scale(1.3) rotate(${item.rotation}deg)`;
+      }, index * 8); // Rapid spawn delay (total ~0.88s)
+    });
+
+    // Step 2: Spiral Vanishing (Center outwards)
+    const startVanishDelay = numImages * 8 + 300; // wait 300ms after last spawn covers screen
+    images.forEach((item, index) => {
+      setTimeout(() => {
+        item.el.classList.add('vanished');
+        item.el.style.transform = `translate(-50%, -50%) scale(0) rotate(${item.rotation + 180}deg)`;
+      }, startVanishDelay + index * 6); // Rapid vanish delay (total ~0.66s)
+    });
+
+    // Step 3: Trigger Cover Assembly & Overlay Clean up
+    const totalIntroTime = startVanishDelay + numImages * 6 + 150;
+    setTimeout(() => {
+      // Trigger cover cards assembly right as the center vanishes outwards
+      document.body.classList.add('page-loaded');
+      
+      // Fade out any gaps of the overlay
+      overlay.style.transition = 'opacity 0.3s ease';
+      overlay.style.opacity = '0';
+      
+      setTimeout(() => {
+        overlay.remove();
+        document.body.style.overflow = originalOverflow;
+      }, 300);
+    }, totalIntroTime);
+  };
+
+  runSpiralIntro();
 
 
   // 2. Synthetic Audio Helper (Web Audio API)
@@ -119,39 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // 5. Typewriter Animation for Closing Section
-  const typewriterText = document.getElementById('typewriter-text');
-  const messageStr = "Happy Birthday! 🎉\n\nI am so incredibly lucky to have met you this year. Even though we haven't been friends for long, you've quickly become one of my favorite people to chat and laugh with. Thank you for your warmth, your hilarious humor, and for always being such a supportive, awesome friend.\n\nHere's to celebrating you today, and to many more years of our awesome friendship! 🎂✨";
-  let hasTyped = false;
-
-  function startTypewriter() {
-    if (hasTyped) return;
-    hasTyped = true;
-    
-    let index = 0;
-    typewriterText.innerHTML = '';
-    
-    function type() {
-      if (index < messageStr.length) {
-        const char = messageStr.charAt(index);
-        if (char === '\n') {
-          typewriterText.innerHTML += '<br>';
-        } else {
-          typewriterText.innerHTML += char;
-        }
-        index++;
-        
-        // Add varying speed for realistic typing flow
-        const delay = char === '.' || char === '!' || char === '?' ? 400 : Math.random() * 40 + 20;
-        setTimeout(type, delay);
-      } else {
-        typewriterText.classList.add('finished');
-      }
-    }
-    
-    // Start delay
-    setTimeout(type, 500);
-  }
+  // (Removed typewriter animations for closing section)
 
 
   // (Removed unused Cassette Player Sound Generator)
@@ -323,46 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start the background animation loop
   animateEngine();
 
-  // Candle elements listeners
-  const candleElement = document.getElementById('candle-element');
-  
-  candleElement.addEventListener('click', (e) => {
-    if (candleElement.classList.contains('blown-out')) return; // Already blown
-    
-    initAudio();
-    candleElement.classList.add('blown-out');
-    
-    // Play a gentle blow/sweep audio cue
-    if (audioCtx) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(300, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.3);
-      
-      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-      
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.3);
-    }
-
-    // Get click location relative to screen viewport
-    const rect = candleElement.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + 15; // approximate flame position
-
-    // Trigger magical sparkles explosion!
-    createExplosion(x, y);
-    
-    // Change instruction text
-    const instruct = document.querySelector('.candle-instruction');
-    instruct.textContent = "Wish made! Happy Birthday! ✨❤️";
-    instruct.style.color = 'var(--color-accent-rose)';
-  });
+  // (Removed candle elements listeners)
 
   // 8. Voice Message Player Controls
   const voiceAudio = document.getElementById('voice-audio');

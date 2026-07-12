@@ -15,7 +15,7 @@
     rel="stylesheet">
 
   <!-- Main Stylesheet (with cache-busting version) -->
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 
 <body>
@@ -99,25 +99,17 @@
           </div>
         </div>
 
-        <!-- Screenshots Grid Area (with inline width overrides to prevent cache bugs) -->
-        <div class="screenshots-grid"
-          style="display: flex; justify-content: center; gap: 12px; margin-top: 15px; width: 100%;">
-          <div class="screenshot-item item-tilted-left"
-            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss1.jpg" alt="toktok screenshot 1" class="screenshot-img"
-              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
-            <div class="screenshot-caption handwritten">
-            </div>
+        <!-- Screenshots Grid Area -->
+        <div class="screenshots-grid">
+          <div class="screenshot-item screenshot-item-1">
+            <img src="ss1.jpg" alt="toktok screenshot 1" class="screenshot-img">
+            <div class="screenshot-caption handwritten"></div>
           </div>
-          <div class="screenshot-item item-tilted-right"
-            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss2.jpg" alt="toktok screenshot 2" class="screenshot-img"
-              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
+          <div class="screenshot-item screenshot-item-2">
+            <img src="ss2.jpg" alt="toktok screenshot 2" class="screenshot-img">
           </div>
-          <div class="screenshot-item item-tilted-left"
-            style="width: 75px; max-width: 75px; min-width: 75px; flex-shrink: 0;">
-            <img src="ss3.jpg" alt="toktok screenshot 3" class="screenshot-img"
-              style="display: block; width: 100%; max-width: 100%; height: 95px; object-fit: cover;">
+          <div class="screenshot-item screenshot-item-3">
+            <img src="ss3.jpg" alt="toktok screenshot 3" class="screenshot-img">
           </div>
         </div>
 
@@ -197,128 +189,82 @@
       </div>
     </section>
 
-    <!-- 8. Closing Birthday Message Section -->
-    <section class="section closing-section" id="closing">
-      <div class="closing-notebook-card scroll-reveal slide-up">
-        <!-- Rings detail -->
-        <div class="notebook-rings rings-top">
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="ring"></div>
-        </div>
 
-        <h3 class="serif-title closing-header">To My Best Friend...</h3>
-
-        <!-- Typewriter Text Container -->
-        <div class="typewriter-container" id="typewriter-trigger">
-          <div class="typewriter-text handwritten" id="typewriter-text"></div>
-        </div>
-
-        <!-- Candle blowing interaction -->
-        <div class="candle-interaction-container">
-          <p class="candle-instruction handwritten">Make a wish and tap the candle to blow it out!</p>
-
-          <div class="candle-wrapper" id="candle-element">
-            <div class="flame" id="candle-flame">
-              <div class="flame-inner"></div>
-            </div>
-            <div class="candle-wick"></div>
-            <div class="candle-body">
-              <div class="candle-stripes"></div>
-            </div>
-            <div class="candle-base"></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 9. Aesthetic Scenery Gallery Section -->
-    <section class="section gallery-section" id="scenery-gallery">
-
-
+    <!-- 9. Monkey Collage Gallery Section -->
+    <section class="section gallery-section" id="monkey-gallery">
       <div class="gallery-grid">
         <!-- Photo 1 -->
-        <div class="gallery-item item-tilted-left scroll-reveal slide-up">
+        <div class="gallery-item collage-item-1 scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop"
-            alt="sunset valley" class="gallery-img">
-          <div class="gallery-caption handwritten">sunset valley</div>
+          <img src="monkey/monkey1 (1).jpg" alt="monkey 1" class="gallery-img">
+          <div class="gallery-caption handwritten">🐒</div>
         </div>
 
         <!-- Photo 2 -->
-        <div class="gallery-item item-tilted-right scroll-reveal slide-up">
+        <div class="gallery-item collage-item-2 scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600&auto=format&fit=crop"
-            alt="forest stream" class="gallery-img">
-          <div class="gallery-caption handwritten">forest stream</div>
+          <img src="monkey/monkey1 (2).jpg" alt="monkey 2" class="gallery-img">
+          <div class="gallery-caption handwritten">🙈</div>
         </div>
 
         <!-- Photo 3 -->
-        <div class="gallery-item item-tilted-left scroll-reveal slide-up">
+        <div class="gallery-item collage-item-3 scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop"
-            alt="mountain peaks" class="gallery-img">
-          <div class="gallery-caption handwritten">mountain peaks</div>
+          <img src="monkey/monkey1 (3).jpg" alt="monkey 3" class="gallery-img">
+          <div class="gallery-caption handwritten">🙊</div>
         </div>
 
         <!-- Photo 4 -->
-        <div class="gallery-item item-tilted-right scroll-reveal slide-up">
+        <div class="gallery-item collage-item-4 scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop"
-            alt="ocean shores" class="gallery-img">
-          <div class="gallery-caption handwritten">ocean shores</div>
+          <img src="monkey/monkey1 (4).jpg" alt="monkey 4" class="gallery-img">
+          <div class="gallery-caption handwritten">🙉</div>
         </div>
 
         <!-- Photo 5 -->
-        <div class="gallery-item item-tilted-left scroll-reveal slide-up">
+        <div class="gallery-item collage-item-5 scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop"
-            alt="starry night" class="gallery-img">
-          <div class="gallery-caption handwritten">starry night</div>
+          <img src="monkey/monkey1 (5).jpg" alt="monkey 5" class="gallery-img">
+          <div class="gallery-caption handwritten">🍌</div>
         </div>
 
         <!-- Photo 6 -->
-        <div class="gallery-item item-tilted-right scroll-reveal slide-up">
+        <div class="gallery-item collage-item-6 scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop"
-            alt="autumn trail" class="gallery-img">
-          <div class="gallery-caption handwritten">autumn trail</div>
+          <img src="monkey/monkey1 (6).jpg" alt="monkey 6" class="gallery-img">
+          <div class="gallery-caption handwritten">🐒</div>
         </div>
 
         <!-- Photo 7 -->
-        <div class="gallery-item item-tilted-left scroll-reveal slide-up">
+        <div class="gallery-item collage-item-7 scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=600&auto=format&fit=crop"
-            alt="pink blossoms" class="gallery-img">
-          <div class="gallery-caption handwritten">pink blossoms</div>
+          <img src="monkey/monkey1 (7).jpg" alt="monkey 7" class="gallery-img">
+          <div class="gallery-caption handwritten">🙈</div>
         </div>
 
         <!-- Photo 8 -->
-        <div class="gallery-item item-tilted-right scroll-reveal slide-up">
+        <div class="gallery-item collage-item-8 scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=600&auto=format&fit=crop"
-            alt="lavender breeze" class="gallery-img">
-          <div class="gallery-caption handwritten">lavender breeze</div>
+          <img src="monkey/monkey1 (8).jpg" alt="monkey 8" class="gallery-img">
+          <div class="gallery-caption handwritten">🙊</div>
         </div>
 
         <!-- Photo 9 -->
-        <div class="gallery-item item-tilted-left scroll-reveal slide-up">
+        <div class="gallery-item collage-item-9 scroll-reveal slide-up">
           <div class="washi-tape tape-top-right"></div>
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&auto=format&fit=crop"
-            alt="misty forest" class="gallery-img">
-          <div class="gallery-caption handwritten">misty forest</div>
+          <img src="monkey/monkey1 (9).jpg" alt="monkey 9" class="gallery-img">
+          <div class="gallery-caption handwritten">🙉</div>
         </div>
 
         <!-- Photo 10 -->
-        <div class="gallery-item item-tilted-right scroll-reveal slide-up">
+        <div class="gallery-item collage-item-10 scroll-reveal slide-up">
           <div class="washi-tape tape-top-left"></div>
-          <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600&auto=format&fit=crop"
-            alt="desert dunes" class="gallery-img">
-          <div class="gallery-caption handwritten">desert dunes</div>
+          <img src="monkey/monkey1 (10).jpg" alt="monkey 10" class="gallery-img">
+          <div class="gallery-caption handwritten">🍌</div>
         </div>
       </div>
-
-
     </section>
 
   </div>

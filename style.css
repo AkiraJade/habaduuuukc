@@ -69,8 +69,6 @@ body {
 /* Apply lightweight CSS Paper Texture & drop-shadow to paper cards */
 .cover-card, 
 .jokes-card, 
-.closing-notebook-card, 
-.cassette-card,
 .letter-paper {
   background-image: 
     radial-gradient(rgba(0,0,0,0.02) 1px, transparent 0),
@@ -173,13 +171,13 @@ body {
 }
 
 .slide-up {
-  transform: translateY(40px);
+  transform: translateY(40px) var(--item-transform, );
 }
 
 /* Target visible styles injected by JS */
 .scroll-reveal.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0) var(--item-transform, ) scale(1);
 }
 
 /* Typography styles */
@@ -242,8 +240,8 @@ body {
 
 .doodle-arrow {
   position: absolute;
-  bottom: 8px;
-  right: 24px;
+  bottom: 14px;
+  right: 32px;
   transform: rotate(15deg);
   opacity: 0.8;
 }
@@ -358,7 +356,7 @@ body {
 .jokes-card {
   background-color: var(--color-cream-paper);
   border-radius: 20px 255px 15px 225px/15px 255px 15px 255px; /* Organic border */
-  padding: 30px 20px;
+  padding: 35px 20px 54px 20px; /* Added more bottom padding to prevent image overlap */
   width: 100%;
   position: relative;
 }
@@ -431,18 +429,25 @@ body {
 .knock-reveal-text {
   opacity: 0;
   transform: scale(0.5);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  padding: 10px 20px;
+  max-height: 0;
+  padding: 0 20px;
+  margin-top: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, margin-top 0.35s ease, padding 0.35s ease, opacity 0.3s ease, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background-color: var(--color-accent-gold);
   color: #fff;
   font-size: 1.8rem;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .knock-reveal-text.revealed {
   opacity: 1;
   transform: scale(1);
+  max-height: 80px;
+  padding: 10px 20px;
+  margin-top: 15px;
   animation: textPop 0.4s ease-out;
 }
 
@@ -461,34 +466,35 @@ body {
 .screenshots-grid {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
+  align-items: center;
+  margin-top: 25px;
   width: 100%;
 }
 
 .screenshot-item {
-  width: 75px; /* lessened size to optimize page rendering */
-  max-width: 75px; /* prevent expansion due to image natural width */
-  min-width: 0;    /* override flexbox content width calculation */
+  position: relative;
+  width: 75px;
+  max-width: 75px;
+  min-width: 0;
   background-color: var(--color-cream-white);
   padding: 4px 4px 8px 4px;
   border-radius: 2px;
-  box-shadow: 1px 3px 8px rgba(0,0,0,0.18);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.18);
   border: 1px solid rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, z-index 0.3s ease;
   cursor: pointer;
   flex-shrink: 0;
-  will-change: transform; /* Hardware acceleration to prevent animation judder */
+  will-change: transform;
 }
 
 .screenshot-img {
   display: block;
   width: 100%;
   max-width: 100%;
-  height: 95px; /* smaller fixed height */
+  height: 95px;
   object-fit: cover;
   border-radius: 1px;
   border: 1px solid rgba(0,0,0,0.04);
@@ -505,17 +511,39 @@ body {
   width: 100%;
 }
 
-.item-tilted-left {
-  transform: rotate(-3deg);
+.screenshot-item-1 {
+  transform: rotate(-6deg) translateY(4px);
+  z-index: 1;
 }
 
-.item-tilted-right {
-  transform: rotate(3deg);
+.screenshot-item-2 {
+  transform: rotate(4deg) translateY(-2px);
+  margin-left: -14px; /* Stack overlap */
+  z-index: 2;
+}
+
+.screenshot-item-3 {
+  transform: rotate(-5deg) translateY(6px);
+  margin-left: -14px; /* Stack overlap */
+  z-index: 3;
 }
 
 .screenshot-item:active {
-  transform: scale(1.08) rotate(0deg);
-  z-index: 10;
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 10 !important;
+}
+
+@media (max-width: 400px) {
+  .screenshot-item {
+    width: 68px;
+    max-width: 68px;
+  }
+  .screenshot-img {
+    height: 86px;
+  }
+  .screenshot-item-2, .screenshot-item-3 {
+    margin-left: -12px; /* proportional overlap on small screens */
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -797,185 +825,7 @@ body {
 
 /* --------------------------------------------------------------------------
    8. Closing Birthday Message Section
-   -------------------------------------------------------------------------- */
-.closing-notebook-card {
-  background-color: var(--color-cream-paper);
-  border-radius: 20px 255px 15px 225px/15px 255px 15px 255px; /* Organic border */
-  padding: 35px 20px 30px 20px;
-  width: 100%;
-  position: relative;
-}
 
-.closing-header {
-  font-size: 2.2rem;
-  text-align: center;
-  color: var(--color-maroon-bg);
-  margin-bottom: 20px;
-}
-
-.typewriter-container {
-  min-height: 160px;
-  background-color: rgba(0,0,0,0.02);
-  border: 1px dashed rgba(0,0,0,0.08);
-  border-radius: 4px;
-  padding: 15px 12px;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-.typewriter-text {
-  font-size: 1.35rem;
-  color: #3b302c;
-  line-height: 1.45;
-}
-
-/* Cursor character simulation */
-.typewriter-text::after {
-  content: "|";
-  display: inline-block;
-  color: var(--color-accent-gold);
-  animation: blink 0.8s step-end infinite;
-  font-weight: bold;
-}
-
-.typewriter-text.finished::after {
-  display: none;
-}
-
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Candle Blow Micro-interaction */
-.candle-interaction-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  border-top: 1px dashed rgba(0,0,0,0.1);
-  padding-top: 24px;
-}
-
-.candle-instruction {
-  font-size: 1.2rem;
-  color: #706257;
-  text-align: center;
-}
-
-.candle-wrapper {
-  position: relative;
-  width: 40px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.candle-body {
-  width: 24px;
-  height: 90px;
-  background-color: var(--color-accent-rose);
-  border-radius: 4px 4px 2px 2px;
-  position: relative;
-  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-/* Spiral Stripes on candle */
-.candle-stripes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    var(--color-cream-paper) 10px,
-    var(--color-cream-paper) 20px
-  );
-  opacity: 0.6;
-}
-
-.candle-wick {
-  width: 2px;
-  height: 12px;
-  background-color: #333;
-}
-
-.flame {
-  width: 18px;
-  height: 32px;
-  background: radial-gradient(ellipse at bottom, #ffea00 0%, #ff8c00 60%, #ff3c00 100%);
-  border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-  box-shadow: 0 -4px 12px rgba(255, 140, 0, 0.7);
-  animation: flicker 1.5s ease-in-out infinite alternate;
-  transform-origin: center bottom;
-  position: relative;
-  margin-bottom: 2px;
-}
-
-.flame-inner {
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 14px;
-  background: #ffffff;
-  border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-  opacity: 0.8;
-}
-
-@keyframes flicker {
-  0% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
-  25% { transform: scale(1.05) rotate(1deg); opacity: 1; }
-  50% { transform: scale(0.95) rotate(-0.5deg); opacity: 0.9; }
-  75% { transform: scale(1.02) rotate(1.5deg); opacity: 0.98; }
-  100% { transform: scale(0.98) rotate(-1.5deg); opacity: 0.92; }
-}
-
-.candle-base {
-  width: 32px;
-  height: 6px;
-  background-color: #aba191;
-  border-radius: 50%;
-  margin-top: -2px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Blown out state animations */
-.candle-wrapper.blown-out .flame {
-  animation: blowOut 0.5s forwards;
-}
-
-@keyframes blowOut {
-  0% { transform: scale(1) rotate(0); opacity: 1; }
-  30% { transform: scale(1.2, 0.3) rotate(20deg) translateY(-5px); opacity: 0.8; filter: blur(1px); }
-  100% { transform: scale(0); opacity: 0; }
-}
-
-/* Smoke tail after blow out */
-.candle-wrapper.blown-out::after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  width: 2px;
-  height: 15px;
-  background-color: rgba(220, 220, 220, 0.6);
-  filter: blur(1px);
-  animation: smokeRise 2s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes smokeRise {
-  0% { transform: translateY(0) scaleX(1); opacity: 0.8; }
-  50% { transform: translateY(-25px) scaleX(3) rotate(10deg); opacity: 0.4; }
-  100% { transform: translateY(-50px) scaleX(0.1); opacity: 0; }
-}
 
 /* --------------------------------------------------------------------------
    9. Aesthetic Scenery Gallery Section
@@ -983,8 +833,9 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 25px;
+  gap: 15px 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   width: 100%;
 }
 
@@ -997,15 +848,77 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, z-index 0.3s ease;
   cursor: pointer;
   position: relative;
   will-change: transform;
 }
 
-.gallery-item:active {
-  transform: scale(1.06) rotate(0deg) !important;
+/* Custom tilts and heavy overlaps for 2-column monkey photo collage (matching reference) */
+.collage-item-1 {
+  --item-transform: rotate(5deg) translateY(5px);
+  margin-right: -18px;
+  margin-bottom: -10px;
+  z-index: 1;
+}
+.collage-item-2 {
+  --item-transform: rotate(-6deg) translateY(-5px);
+  margin-left: -18px;
+  margin-bottom: -15px;
+  z-index: 2;
+}
+.collage-item-3 {
+  --item-transform: rotate(-8deg) translateY(10px);
+  margin-right: -22px;
+  margin-top: -35px; /* overlap top row */
+  z-index: 3;
+}
+.collage-item-4 {
+  --item-transform: rotate(7deg) translateY(-8px);
+  margin-left: -22px;
+  margin-top: -40px; /* overlap top row */
+  z-index: 4;
+}
+.collage-item-5 {
+  --item-transform: rotate(6deg) translateY(12px);
+  margin-right: -18px;
+  margin-top: -35px;
+  z-index: 5;
+}
+.collage-item-6 {
+  --item-transform: rotate(-7deg) translateY(-10px);
+  margin-left: -18px;
+  margin-top: -45px;
+  z-index: 6;
+}
+.collage-item-7 {
+  --item-transform: rotate(-5deg) translateY(8px);
+  margin-right: -22px;
+  margin-top: -35px;
+  z-index: 7;
+}
+.collage-item-8 {
+  --item-transform: rotate(9deg) translateY(-6px);
+  margin-left: -22px;
+  margin-top: -40px;
+  z-index: 8;
+}
+.collage-item-9 {
+  --item-transform: rotate(8deg) translateY(15px);
+  margin-right: -18px;
+  margin-top: -45px;
+  z-index: 9;
+}
+.collage-item-10 {
+  --item-transform: rotate(-6deg) translateY(-12px);
+  margin-left: -18px;
+  margin-top: -35px;
   z-index: 10;
+}
+
+.gallery-item:active {
+  transform: scale(1.15) rotate(0deg) !important;
+  z-index: 20 !important;
 }
 
 .gallery-img {
@@ -1046,6 +959,49 @@ body {
   pointer-events: none;
   z-index: 0; /* Behind scrapbook elements, in front of background color */
 }
+
+/* ==========================================================================
+   Spiral Loading Animation Overlay (Monkey and Banana)
+   ========================================================================== */
+#spiral-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: transparent;
+  pointer-events: auto; /* Block clicks during animation */
+  overflow: hidden;
+}
+
+.spiral-img {
+  position: absolute;
+  width: 9vw;
+  height: 9vw;
+  min-width: 42px;
+  min-height: 42px;
+  max-width: 95px;
+  max-height: 95px;
+  object-fit: contain;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+  will-change: transform, opacity;
+  z-index: 10000;
+}
+
+.spiral-img.spawned {
+  transform: translate(-50%, -50%) scale(1.3);
+  opacity: 1;
+}
+
+.spiral-img.vanished {
+  transform: translate(-50%, -50%) scale(0) rotate(180deg);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.36, 0, 0.66, -0.56), opacity 0.25s ease;
+}
+
 
 /* ==========================================================================
    10. Cover Page Assembly Animation (Option 2 Intro)
