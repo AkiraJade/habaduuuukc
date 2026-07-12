@@ -391,11 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAudio();
     
     if (voiceAudio.paused) {
-      // Pause cassette player if playing to avoid double audio overlap
-      if (isPlaying) {
-        mixtapePlay.click();
-      }
-      
       voiceAudio.play().then(() => {
         voicePlayIcon.textContent = "⏸";
       }).catch(err => {
