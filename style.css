@@ -790,6 +790,50 @@ body {
   line-height: 1;
 }
 
+/* Download Buttons inside Letter */
+.download-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px dashed var(--color-accent-gold);
+  background-color: rgba(197, 160, 89, 0.12);
+  text-decoration: none;
+  color: var(--color-maroon-dark);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.download-btn:hover {
+  background-color: rgba(197, 160, 89, 0.28);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.25);
+}
+
+.download-btn:active {
+  transform: scale(0.96);
+}
+
+.download-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.download-label {
+  font-size: 0.82rem;
+  color: #5a4a3a;
+  white-space: nowrap;
+}
+
 /* Envelope Open State */
 .envelope-wrapper.open .envelope-top {
   transform: rotateX(180deg);

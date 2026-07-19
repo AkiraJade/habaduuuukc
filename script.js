@@ -181,6 +181,39 @@ document.addEventListener('DOMContentLoaded', () => {
     envelopeWrapper.classList.toggle('open');
   });
 
+  // 4b. Download Letter as Text File
+  const downloadLetterBtn = document.getElementById('download-letter-btn');
+  downloadLetterBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Extract the letter text content from the DOM
+    const greeting = document.querySelector('.letter-inner h4').textContent;
+    const paragraphs = document.querySelectorAll('.letter-scroll-text .letter-p');
+    let letterText = greeting + '\n\n';
+    paragraphs.forEach(p => {
+      letterText += p.textContent.trim() + '\n\n';
+    });
+
+    // Create and trigger download
+    const blob = new Blob([letterText.trim()], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'birthday_letter.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // Stop download buttons from toggling the envelope
+  document.querySelectorAll('.download-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  });
+
 
   // (Removed typewriter animations for closing section)
 
